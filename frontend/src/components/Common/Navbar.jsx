@@ -9,7 +9,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/" className="navbar-logo">
-          🎤 AI Interviewer
+           Ai Talk
         </Link>
         <ul className="navbar-menu">
           <li>
