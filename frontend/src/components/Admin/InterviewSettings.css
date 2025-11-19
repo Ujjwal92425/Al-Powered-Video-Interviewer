@@ -1,0 +1,45 @@
+.interview-settings h2 {
+  color: #374151;
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+.settings-grid {
+  display: grid;
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.setting-item {
+  background: #f9fafb;
+  padding: 20px;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+}
+
+.setting-label {
+  display: block;
+  color: #374151;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.setting-label input[type="number"],
+.setting-label input[type="text"] {
+  margin-top: 8px;
+}
+
+.setting-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  color: #374151;
+  font-weight: 600;
+}
+
+.setting-checkbox input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
