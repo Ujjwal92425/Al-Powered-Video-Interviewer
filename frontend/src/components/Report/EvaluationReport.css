@@ -1,65 +1,130 @@
 .evaluation-report {
   max-width: 1000px;
   margin: 0 auto;
+  padding: 20px;
 }
 
 .report-header {
-  background: white;
-  padding: 40px;
-  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.98);
+  /* backdrop-filter: blur(10px); */
+  padding: 48px 40px;
+  border-radius: 24px;
   text-align: center;
-  margin-bottom: 30px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 32px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+  animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Gradient top border */
+.report-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
 }
 
 .report-header h1 {
-  color: #374151;
+  color: #1f2937;
   font-size: 36px;
-  margin-bottom: 15px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
 }
 
 .candidate-name {
-  color: #6b7280;
+  color: #4b5563;
   font-size: 20px;
-  margin-bottom: 5px;
+  font-weight: 600;
+  margin-bottom: 8px;
 }
 
 .report-date {
   color: #9ca3af;
   font-size: 14px;
+  font-weight: 500;
 }
 
 .report-section {
-  margin-bottom: 30px;
+  margin-bottom: 32px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .strengths-weaknesses {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 24px;
 }
 
 .strengths-card,
 .weaknesses-card {
-  background: white;
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.98);
+  /* backdrop-filter: blur(10px); */
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.strengths-card {
-  border-left: 5px solid #10b981;
+.strengths-card:hover,
+.weaknesses-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
 }
 
-.weaknesses-card {
-  border-left: 5px solid #f59e0b;
+.strengths-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #10b981 0%, #34d399 100%);
+}
+
+.weaknesses-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #f59e0b 0%, #fbbf24 100%);
 }
 
 .strengths-card h3,
 .weaknesses-card h3 {
-  color: #374151;
-  margin-bottom: 20px;
-  font-size: 20px;
+  color: #1f2937;
+  margin-bottom: 24px;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
 }
 
 .strengths-card ul,
@@ -71,10 +136,31 @@
 
 .strengths-card li,
 .weaknesses-card li {
-  padding: 10px 0;
-  color: #6b7280;
+  padding: 14px 0;
+  color: #4b5563;
   font-size: 16px;
-  border-bottom: 1px solid #e5e7eb;
+  line-height: 1.6;
+  border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+  position: relative;
+  padding-left: 24px;
+}
+
+.strengths-card li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #10b981;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.weaknesses-card li::before {
+  content: '!';
+  position: absolute;
+  left: 0;
+  color: #f59e0b;
+  font-weight: 700;
+  font-size: 18px;
 }
 
 .strengths-card li:last-child,
@@ -83,86 +169,171 @@
 }
 
 .summary-card {
-  background: white;
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  border-left: 5px solid #667eea;
+  background: rgba(255, 255, 255, 0.98);
+  /* backdrop-filter: blur(10px); */
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.summary-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+.summary-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
 }
 
 .summary-card h3 {
-  color: #374151;
-  margin-bottom: 15px;
-  font-size: 20px;
+  color: #1f2937;
+  margin-bottom: 16px;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
 }
 
 .summary-card p {
-  color: #6b7280;
+  color: #4b5563;
   line-height: 1.8;
   font-size: 16px;
 }
 
 .response-card {
-  background: white;
-  padding: 25px;
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.98);
+  /* backdrop-filter: blur(10px); */
+  padding: 28px;
+  border-radius: 16px;
   margin-bottom: 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  border: 2px solid #e5e7eb;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(229, 231, 235, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.response-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  border-color: rgba(102, 126, 234, 0.3);
 }
 
 .response-header {
   display: flex;
   justify-content: space-between;
   align-items: start;
-  margin-bottom: 15px;
+  margin-bottom: 16px;
 }
 
 .response-header h4 {
-  color: #374151;
+  color: #1f2937;
   font-size: 18px;
+  font-weight: 600;
   flex: 1;
+  line-height: 1.4;
 }
 
 .response-score {
-  font-size: 24px;
-  font-weight: bold;
-  color: #667eea;
+  font-size: 28px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-left: 20px;
+  min-width: 60px;
+  text-align: right;
 }
 
 .response-transcript {
-  color: #6b7280;
-  line-height: 1.6;
-  margin-bottom: 10px;
+  color: #4b5563;
+  line-height: 1.7;
+  margin-bottom: 12px;
+  font-size: 15px;
 }
 
 .missing-keywords {
-  background: #fef3c7;
-  padding: 10px 15px;
-  border-radius: 8px;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  padding: 12px 16px;
+  border-radius: 10px;
   font-size: 14px;
-  color: #92400e;
+  color: #78350f;
+  border-left: 3px solid #f59e0b;
 }
 
 .missing-keywords strong {
   color: #78350f;
+  font-weight: 700;
 }
 
 .report-actions {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 16px;
   margin-top: 40px;
-  padding: 30px;
+  padding: 20px;
 }
 
+.report-actions button {
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.report-actions button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.report-actions button:active {
+  transform: translateY(0);
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
+  .evaluation-report {
+    padding: 16px;
+  }
+
+  .report-header {
+    padding: 32px 24px;
+  }
+
+  .report-header h1 {
+    font-size: 28px;
+  }
+
   .strengths-weaknesses {
     grid-template-columns: 1fr;
   }
-  
+
+  .response-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .response-score {
+    margin-left: 0;
+    text-align: left;
+  }
+
   .report-actions {
     flex-direction: column;
+  }
+
+  .report-actions button {
+    width: 100%;
   }
 }

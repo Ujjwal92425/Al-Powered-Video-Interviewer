@@ -1,5 +1,5 @@
 .footer {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(55, 54, 54, 0.95);
   margin-top: 60px;
   padding: 30px 20px;
   text-align: center;
@@ -13,6 +13,6 @@
 
 .footer p {
   margin: 5px 0;
-  color: #6b7280;
+  color: #f9f9f9;
   font-size: 14px;
 }

@@ -13,28 +13,29 @@ class SpeechService {
       this.recognition.lang = 'en-US';
     }
   }
+speak(text, options = {}) {
+  return new Promise((resolve, reject) => {
+    if (!this.isSupported) {
+      reject(new Error('Speech synthesis not supported'));
+      return;
+    }
 
-  speak(text, options = {}) {
-    return new Promise((resolve, reject) => {
-      if (!this.isSupported) {
-        reject(new Error('Speech synthesis not supported'));
-        return;
-      }
-
-      // Cancel any ongoing speech
+    // DO NOT CANCEL IMMEDIATELY — this breaks speech
+    if (this.synthesis.speaking) {
       this.synthesis.cancel();
+    }
 
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.rate = options.rate || 0.9;
-      utterance.pitch = options.pitch || 1;
-      utterance.volume = options.volume || 1;
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.rate = options.rate || 0.9;
+    utterance.pitch = options.pitch || 1;
+    utterance.volume = options.volume || 1;
 
-      utterance.onend = () => resolve();
-      utterance.onerror = (error) => reject(error);
+    utterance.onend = () => resolve();
+    utterance.onerror = (error) => reject(error);
 
-      this.synthesis.speak(utterance);
-    });
-  }
+    this.synthesis.speak(utterance);
+  });
+}
 
   stop() {
     if (this.synthesis) {

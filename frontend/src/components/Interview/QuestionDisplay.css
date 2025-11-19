@@ -1,9 +1,10 @@
 .question-display {
   text-align: center;
   padding: 30px;
-  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+  background: rgb(255, 255, 255);
   border-radius: 16px;
   margin: 30px 0;
+  box-shadow: grey 5px 5px 15px;
 }
 
 .question-badge {

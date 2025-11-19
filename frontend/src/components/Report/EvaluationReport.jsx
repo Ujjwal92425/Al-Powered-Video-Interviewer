@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import ScoreCard from './ScoreCard';
-// import './EvaluationReport.css';
+import './EvaluationReport.css';
 
 const EvaluationReport = ({ interview }) => {
   const navigate = useNavigate();
